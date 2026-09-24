@@ -1,0 +1,141 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 100%;
+}
+
+.productImage {
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 1/1;
+  box-sizing: border-box;
+  padding: 30px;
+  background-color: #f6f5f9;
+  border-bottom: 1px solid #e4e2ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.productInfos {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.category {
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: #a06b16;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #1f1d3a;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #56527a;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.price {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3a3382;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #1f1d3a;
+  margin-bottom: 8px;
+}
+
+.quantityField {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid #e4e2ee;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.decreaseButton,
+.increaseButton {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #1f1d3a;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.decreaseButton:hover,
+.increaseButton:hover {
+  background-color: #f6f5f9;
+}
+
+.quantityInput {
+  width: 54px;
+  height: 40px;
+  border: none;
+  border-left: 1px solid #e4e2ee;
+  border-right: 1px solid #e4e2ee;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: #1f1d3a;
+}
+
+.quantityInput:focus {
+  outline: none;
+}
+
+.addButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #3a3382;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: #2b2566;
+}

@@ -1,0 +1,20 @@
+.heading {
+  font-family: var(--font-serif);
+  font-size: 3.75rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: #56527a;
+  margin-bottom: 48px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  gap: 25px;
+}
