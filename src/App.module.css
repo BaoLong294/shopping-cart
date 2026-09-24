@@ -12,7 +12,7 @@ nav {
 }
 
 .title {
-  font-family: 'Newsreader', sans-serif;
+  font-family: var(--font-serif);
   font-size: 1.5rem;
   font-weight: 600;
   text-decoration: none;
@@ -26,7 +26,7 @@ nav {
 }
 
 .link {
-  font-family: 'Newsreader', sans-serif;
+  font-family: var(--font-serif);
   text-decoration: none;
   color: #56527a;
   font-size: 1rem;
@@ -45,7 +45,7 @@ nav {
 }
 
 .linkActive {
-  font-family: 'Newsreader', sans-serif;
+  font-family: var(--font-serif);
   text-decoration: none;
   color: #3a3382;
   font-size: 1rem;
@@ -53,4 +53,9 @@ nav {
   padding: 8px 16px;
   border-radius: 20px;
   background-color: #e8e5f7;
+}
+
+.pageContainer {
+  max-width: 1150px;
+  margin: 0 auto;
 }

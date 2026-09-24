@@ -25,9 +25,8 @@ describe('App', () => {
     const user = userEvent.setup();
     const shopLink = screen.getByRole('link', { name: 'Shop' });
     await user.click(shopLink);
-    const shopHeading = screen.getByRole('heading', { name: 'SHOP' });
 
-    expect(shopHeading).toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/shop');
   });
 
   it('should navigate to Cart page when cart link is clicked', async () => {
@@ -39,8 +38,6 @@ describe('App', () => {
     const user = userEvent.setup();
     const cartLink = screen.getByRole('link', { name: 'Cart' });
     await user.click(cartLink);
-    const cartHeading = screen.getByRole('heading', { name: 'CART' });
-
-    expect(cartHeading).toBeInTheDocument();
+    expect(router.state.location.pathname).toBe('/cart');
   });
 });

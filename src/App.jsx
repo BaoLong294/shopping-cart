@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from 'react-router';
 
 function App() {
   return (
-    <div className={styles.app}>
+    <div>
       <nav>
         <div className={styles.navContainer}>
           <Link to="home" className={styles.title}>
@@ -37,7 +37,9 @@ function App() {
           </div>
         </div>
       </nav>
-      <Outlet />
+      <div className={styles.pageContainer}>
+        <Outlet />
+      </div>
     </div>
   );
 }
