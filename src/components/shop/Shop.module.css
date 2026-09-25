@@ -1,3 +1,34 @@
+.loadingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e2e8f0;
+  border-top: 3px solid #56527a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingHeading {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #56527a;
+}
+
 .heading {
   font-family: var(--font-serif);
   font-size: 3.75rem;

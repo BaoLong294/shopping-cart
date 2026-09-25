@@ -1,28 +1,56 @@
 import styles from './Shop.module.css';
+import { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router';
 import ProductCard from '../productCard/ProductCard';
 
-function Shop({ onAddToCart }) {
-  const mockProducts = [
-    {
-      id: 1,
-      title: 'Essence Mascara Lash Princess',
-      price: 9.99,
-      description:
-        'The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effect.',
-      category: 'beauty',
-      image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png',
-    },
-    {
-      id: 2,
-      title: 'Eyeshadow Palette with Mirror',
-      price: 19.99,
-      description:
-        'The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning looks.',
-      category: 'beauty',
-      image:
-        'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png',
-    },
-  ];
+function Shop() {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const { handleAddToCart } = useOutletContext();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://fakestoreapi.com/products');
+
+        if (!response.ok) {
+          throw new Error('server error');
+        }
+
+        const data = await response.json();
+        const newProducts = data.map(
+          ({ id, title, price, description, category, image }) => ({
+            id,
+            title,
+            price,
+            description,
+            category,
+            image,
+          })
+        );
+
+        setProducts(newProducts);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  if (loading)
+    return (
+      <div className={styles.loadingWrapper}>
+        <span className={styles.spinner}></span>
+        <h2 className={styles.loadingHeading}>Loading...</h2>
+      </div>
+    );
+
+  if (error) return <h2>A network error was encountered</h2>;
 
   return (
     <>
@@ -31,11 +59,11 @@ function Shop({ onAddToCart }) {
         Choose a quantity, then add your favorites to your cart.
       </p>
       <div className={styles.cardGrid}>
-        {mockProducts.map((product) => (
+        {products.map((product) => (
           <ProductCard
             key={product.id}
             product={product}
-            onAddToCart={onAddToCart}
+            onAddToCart={handleAddToCart}
           />
         ))}
       </div>

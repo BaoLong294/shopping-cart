@@ -51,6 +51,11 @@
   color: #1f1d3a;
   line-height: 1.4;
   margin-bottom: 8px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .description {
@@ -60,6 +65,11 @@
   color: #56527a;
   margin-bottom: 16px;
   flex-grow: 1;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .price {

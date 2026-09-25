@@ -1,7 +1,28 @@
 import styles from './App.module.css';
 import { Link, NavLink, Outlet } from 'react-router';
+import { useState } from 'react';
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (product, quantity) => {
+    setCart((prevCart) => {
+      const isExisted = prevCart.some((item) => item.product.id === product.id);
+
+      if (isExisted) {
+        return prevCart.map((item) =>
+          item.product.id === product.id
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        );
+      }
+
+      return [...prevCart, { product, quantity }];
+    });
+  };
+
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <div>
       <nav>
@@ -33,12 +54,17 @@ function App() {
               }
             >
               Cart
+              {totalQuantity > 0 && (
+                <span className={styles.cartBadge} aria-hidden="true">
+                  {totalQuantity}
+                </span>
+              )}
             </NavLink>
           </div>
         </div>
       </nav>
       <div className={styles.pageContainer}>
-        <Outlet />
+        <Outlet context={{ handleAddToCart }} />
       </div>
     </div>
   );

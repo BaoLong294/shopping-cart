@@ -55,6 +55,29 @@ nav {
   background-color: #e8e5f7;
 }
 
+.link,
+.linkActive {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -4px;
+  right: 2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background-color: #dc2626;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+}
+
 .pageContainer {
   max-width: 1150px;
   margin: 0 auto;
