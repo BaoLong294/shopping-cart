@@ -1,0 +1,44 @@
+.empty {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #56527a;
+}
+
+.link {
+  font-family: var(--font-serif);
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #3a3382;
+  transition: background-color 0.2s;
+}
+
+.link:hover {
+  background-color: #4c43a4;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: 3.75rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.totalPrice {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: end;
+}

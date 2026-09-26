@@ -1,0 +1,100 @@
+.cartItem {
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.info {
+  flex: 0 0 60%;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f1d3a;
+  margin-bottom: 4px;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: #8b88a5;
+}
+
+.quantityField {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid #e4e2ee;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.decreaseButton,
+.increaseButton {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #1f1d3a;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.decreaseButton:hover,
+.increaseButton:hover {
+  background-color: #f6f5f9;
+}
+
+.quantity {
+  width: 54px;
+  height: 40px;
+  border: none;
+  border-left: 1px solid #e4e2ee;
+  border-right: 1px solid #e4e2ee;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: #1f1d3a;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3a3382;
+  text-align: end;
+}
+
+.removeButton {
+  flex: 0 0 auto;
+  font-family: var(--font-serif);
+  text-decoration: none;
+  color: #a06b16;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  background-color: #f4efe6;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.removeButton:hover {
+  background-color: #eae2d5;
+}

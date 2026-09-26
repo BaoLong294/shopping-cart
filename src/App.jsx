@@ -1,9 +1,16 @@
 import styles from './App.module.css';
 import { Link, NavLink, Outlet } from 'react-router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+  useEffect(() => localStorage.setItem('cart', JSON.stringify(cart)), [cart]);
 
   const handleAddToCart = (product, quantity) => {
     setCart((prevCart) => {
@@ -21,7 +28,17 @@ function App() {
     });
   };
 
-  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    const newCart = cart.map((item) =>
+      item.product.id === productId ? { ...item, quantity: newQuantity } : item
+    );
+    setCart(newCart);
+  };
+
+  const handleRemoveItem = (productId) => {
+    const newCart = cart.filter((item) => item.product.id !== productId);
+    setCart(newCart);
+  };
 
   return (
     <div>
@@ -64,7 +81,14 @@ function App() {
         </div>
       </nav>
       <div className={styles.pageContainer}>
-        <Outlet context={{ handleAddToCart }} />
+        <Outlet
+          context={{
+            cart,
+            handleAddToCart,
+            handleUpdateQuantity,
+            handleRemoveItem,
+          }}
+        />
       </div>
     </div>
   );
