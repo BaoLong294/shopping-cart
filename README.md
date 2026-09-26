@@ -1,5 +1,7 @@
 # Shopping Cart
 
+**Live Demo:** https://shopping-cart-omega-woad.vercel.app/home
+
 ## Introduction
 
 This is a mock shopping cart application, built as the largest and final project of the React section in The Odin Project curriculum. The app lets users browse products fetched from the FakeStore API, adjust quantities, add items to a cart, and manage that cart (increase/decrease quantity, remove items), with cart data persisted across page reloads via `localStorage`.
